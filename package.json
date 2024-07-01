@@ -1,0 +1,12 @@
+{
+  "name": "libtiff.js",
+  "module": "lib/index.ts",
+  "author": "<Branko Krstic> @ saicoder",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "^1.1.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

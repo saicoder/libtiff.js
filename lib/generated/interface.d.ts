@@ -297,6 +297,7 @@ export type TIFFImageTagType = TIFFImageTagTypeValue<1>|TIFFImageTagTypeValue<2>
 
 export interface TIFFImage {
   flush(): void;
+  isBigEndian(): any;
   readTag(_0: number, _1: TIFFImageTagType): any;
   writeTag(_0: number, _1: TIFFImageTagType, _2: any): boolean;
   readImageData(): any;

@@ -27,6 +27,7 @@ public:
     const emscripten::val readTag(const uint32_t tagId, const TIFFImageTagType type);
     const bool writeTag(const uint32_t tagId, const TIFFImageTagType type, const emscripten::val &value);
 
+    const emscripten::val isBigEndian();
     const emscripten::val readImageData();
     void writeImageData(const emscripten::val &pixelData);
     void flush();

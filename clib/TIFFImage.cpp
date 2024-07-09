@@ -12,6 +12,11 @@ TIFFImage::~TIFFImage()
     }
 }
 
+const emscripten::val TIFFImage::isBigEndian()
+{
+    return emscripten::val(TIFFIsBigEndian(tif));
+}
+
 const emscripten::val TIFFImage::readTag(const uint32_t tag, const TIFFImageTagType type)
 {
     switch (type)
@@ -206,6 +211,7 @@ EMSCRIPTEN_BINDINGS(my_module)
         .value("FLOAT64", FLOAT64);
 
     class_<TIFFImage>("TIFFImage")
+        .function("isBigEndian", &TIFFImage::isBigEndian)
         .function("readTag", &TIFFImage::readTag)
         .function("writeTag", &TIFFImage::writeTag)
         .function("readImageData", &TIFFImage::readImageData)

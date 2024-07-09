@@ -3,6 +3,12 @@ import { getRuntime } from './runtime'
 import { TagName } from './tag-names'
 import { TagType, type ReturnTypeForTag, type TagTypeKeys } from './tag-types'
 
+export enum Endian {
+  DEFAULT = 'w',
+  BIG_ENDIAN = 'wb',
+  LITTLE_ENDIAN = 'lb',
+}
+
 export class TIFFImage {
   private tif: CTIFFImage
 
@@ -35,6 +41,10 @@ export class TIFFImage {
   }
 
   // === Normal setters and getters ===
+  public get isBigEndian() {
+    return this.tif.isBigEndian() !== 0
+  }
+
   public get width() {
     return this.readTag(TagName.IMAGEWIDTH, 'UINT16')
   }
@@ -82,11 +92,11 @@ export class TIFFImage {
     return new TIFFImage(runtime, id, 'r+')
   }
 
-  public static async new() {
+  public static async new(endianMode = Endian.DEFAULT) {
     const runtime = getRuntime()
     const id = `${crypto.randomUUID()}.tif`
 
-    const tif = new TIFFImage(runtime, id, 'w')
+    const tif = new TIFFImage(runtime, id, endianMode)
 
     return tif
   }

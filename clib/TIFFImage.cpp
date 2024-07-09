@@ -19,7 +19,7 @@ const emscripten::val TIFFImage::readTag(const uint32_t tag, const TIFFImageTagT
     case TIFFImageTagType::BYTE_ARRAY:
     {
         uint8_t *data;
-        uint16_t size;
+        uint32_t size;
 
         if (TIFFGetField(this->tif, tag, &size, &data))
         {

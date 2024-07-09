@@ -10,7 +10,7 @@ Aim of this library is to be low-level and to work in browser and on server. For
 Example of creating image:
 
 ```typescript
-import { TIFFImage, TagName, initRuntime } from 'libtiff.js'
+import { TIFFImage, TagName, initRuntime } from 'libtiff'
 
 await initRuntime({
     // optionally provide ether function to find web assembly: locateFile: () => string (URL)

@@ -6,7 +6,7 @@ import { TagType, type ReturnTypeForTag, type TagTypeKeys } from './tag-types'
 export enum Endian {
   DEFAULT = 'w',
   BIG_ENDIAN = 'wb',
-  LITTLE_ENDIAN = 'lb',
+  LITTLE_ENDIAN = 'wl',
 }
 
 export class TIFFImage {

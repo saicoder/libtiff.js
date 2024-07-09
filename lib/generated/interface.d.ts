@@ -305,7 +305,7 @@ export interface TIFFImage {
 }
 
 interface EmbindModule {
-  TIFFImageTagType: {BYTE_ARRAYA: TIFFImageTagTypeValue<1>, ASCII: TIFFImageTagTypeValue<2>, UINT16: TIFFImageTagTypeValue<3>, UINT32: TIFFImageTagTypeValue<4>, UINT64: TIFFImageTagTypeValue<5>, FLOAT32: TIFFImageTagTypeValue<6>, FLOAT64: TIFFImageTagTypeValue<7>};
+  TIFFImageTagType: {BYTE_ARRAY: TIFFImageTagTypeValue<1>, ASCII: TIFFImageTagTypeValue<2>, UINT16: TIFFImageTagTypeValue<3>, UINT32: TIFFImageTagTypeValue<4>, UINT64: TIFFImageTagTypeValue<5>, FLOAT32: TIFFImageTagTypeValue<6>, FLOAT64: TIFFImageTagTypeValue<7>};
   TIFFImage: {open(_0: EmbindString, _1: EmbindString): TIFFImage};
 }
 

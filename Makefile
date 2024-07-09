@@ -7,7 +7,7 @@ build: build-libtiff
 	-lembind -ltiff -ltiffxx -lz \
 	--emit-tsd interface.d.ts \
 	-o ./lib/generated/libtiff.js \
-	-s EXPORTED_RUNTIME_METHODS='["FS"]' -sMODULARIZE=1 -sEXPORT_ES6=1 -sALLOW_MEMORY_GROWTH=1 -sNO_DISABLE_EXCEPTION_CATCHING -sENVIRONMENT=web
+	-s EXPORTED_RUNTIME_METHODS='["FS"]' -sMODULARIZE=1 -sALLOW_MEMORY_GROWTH=1 -sNO_DISABLE_EXCEPTION_CATCHING
 
 build-libtiff: build-zlib
 	cd libtiff && emcmake cmake . -DZLIB_INCLUDE_DIR=$(ZLIB_INCLUDE_DIR) -DZLIB_LIBRARY=$(ZLIB_LIBRARY) -Dzlib=ON && emmake make
@@ -18,4 +18,5 @@ build-zlib:
 build-typescript:
 	bun run build
 	
-all: build-libtiff build 
+all: build build-typescript
+	echo 'Done'

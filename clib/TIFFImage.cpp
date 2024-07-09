@@ -197,7 +197,7 @@ TIFFImage *TIFFImage::open(const std::string &name, const std::string &mode)
 EMSCRIPTEN_BINDINGS(my_module)
 {
     enum_<TIFFImageTagType>("TIFFImageTagType")
-        .value("BYTE_ARRAYA", BYTE_ARRAY)
+        .value("BYTE_ARRAY", BYTE_ARRAY)
         .value("ASCII", ASCII)
         .value("UINT16", UINT16)
         .value("UINT32", UINT32)

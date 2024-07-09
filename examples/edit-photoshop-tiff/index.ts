@@ -1,7 +1,9 @@
-import { TagName, TIFF } from '../../lib'
+import { TagName, TIFFImage, initRuntime } from '../../lib'
+
+await initRuntime()
 
 const array = await Bun.file(import.meta.dir + '/input.tiff').arrayBuffer()
-const image = await TIFF.open(array)
+const image = await TIFFImage.open(array)
 
 const channels = image.readTag(TagName.SAMPLESPERPIXEL, 'UINT16')
 

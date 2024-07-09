@@ -1,5 +1,5 @@
 import type { MainModule, TIFFImage as CTIFFImage } from './generated/interface'
-import { initRuntime } from './runtime'
+import { getRuntime } from './runtime'
 import { TagName } from './tag-names'
 import { TagType, type ReturnTypeForTag, type TagTypeKeys } from './tag-types'
 
@@ -73,7 +73,7 @@ export class TIFFImage {
 
   // == Static Methods ===
   public static async open(data: Uint8Array | ArrayBuffer) {
-    const runtime = await initRuntime({})
+    const runtime = getRuntime()
     const id = `${crypto.randomUUID()}.tif`
 
     const buffer = data instanceof Uint8Array ? data : new Uint8Array(data)
@@ -83,7 +83,7 @@ export class TIFFImage {
   }
 
   public static async new() {
-    const runtime = await initRuntime({})
+    const runtime = getRuntime()
     const id = `${crypto.randomUUID()}.tif`
 
     const tif = new TIFFImage(runtime, id, 'w')

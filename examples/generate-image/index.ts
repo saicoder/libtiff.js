@@ -1,4 +1,6 @@
-import { TIFF, TagName } from '../../lib'
+import { TIFFImage, TagName, initRuntime } from '../../lib'
+
+await initRuntime()
 
 const width = 500
 const height = 500
@@ -31,7 +33,7 @@ const exampleImageData = () => {
 
 // Create TIFF Image
 const createImage = async () => {
-  const image = await TIFF.new()
+  const image = await TIFFImage.new()
 
   image.writeTag(TagName.IMAGEWIDTH, 'UINT16', width)
   image.writeTag(TagName.IMAGELENGTH, 'UINT16', height)

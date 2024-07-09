@@ -10,6 +10,13 @@ Aim of this library is to be low-level and to work in browser and on server. For
 Example of creating image:
 
 ```typescript
+import { TIFFImage, TagName, initRuntime } from 'libtiff.js'
+
+await initRuntime({
+    // optionally provide ether function to find web assembly: locateFile: () => string (URL)
+    // or wasmBinary: ArrayBuffer 
+})
+
 const image = await TIFF.new()
 
 image.writeTag(TagName.IMAGEWIDTH, 'UINT16', width)
